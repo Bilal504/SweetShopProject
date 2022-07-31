@@ -12,27 +12,29 @@
 <table class="table">
     <thead>
         <tr>
+               <th>
+                @Html.DisplayNameFor(model => model.timeStamp)
+            </th>
+             <th>
+                @Html.DisplayNameFor(model => model.prod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cat)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.totalPrice)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.quantity)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.timeStamp)
-            </th>
+         
             <th>
                 @Html.DisplayNameFor(model => model.Discount)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.finalAmount)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.prod)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.cat)
-            </th>
+           
             <th></th>
         </tr>
     </thead>

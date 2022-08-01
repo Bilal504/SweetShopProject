@@ -57,22 +57,28 @@ namespace SweetShopProject.Models
         [DisplayName("Order ID")]
         public int id { get; set; }
 
+        [DisplayName("Price")]
         public float totalPrice { get; set; }
+        [DisplayName("Quantity")]
         public int quantity { get; set; }
 
+        [DisplayName("Time")]
         public DateTime timeStamp { get; set; }
 
         public float Discount { get; set; }
 
+        [DisplayName("Total Amount")]
         public float finalAmount { get; set; }
 
 
         [ForeignKey("prod")]
         public int prodID { get; set; }
+        [DisplayName("Product")]
         public Product prod { get; set; }
 
         [ForeignKey("catID")]
         public int catID { get; set; }
+        [DisplayName("Category")]
         public Category cat { get; set; }
 
     }

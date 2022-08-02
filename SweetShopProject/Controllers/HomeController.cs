@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SweetShopProject.Models;
 using System.Diagnostics;
 
@@ -14,12 +15,19 @@ namespace SweetShopProject.Controllers
         {
             _logger = logger;
             this.context = context;
+
         }
 
-        public IActionResult Index()
+        //public IActionResult Index()
+        //{
+        //    return View();
+        //}4
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var sweetContext = context.product.Include(p => p.cat).Include(p => p.city);
+            return View(await sweetContext.ToListAsync());
         }
+
 
         public IActionResult Privacy()
         {

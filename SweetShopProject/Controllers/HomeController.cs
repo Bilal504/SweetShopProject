@@ -8,9 +8,12 @@ namespace SweetShopProject.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public SweetContext context;   
+
+        public HomeController(ILogger<HomeController> logger, SweetContext context)
         {
             _logger = logger;
+            this.context = context;
         }
 
         public IActionResult Index()

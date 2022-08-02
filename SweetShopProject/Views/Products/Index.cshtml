@@ -24,14 +24,15 @@
             <th>
                 @Html.DisplayNameFor(model => model.quantity)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.imgpath)
-            </th>
+           
             <th>
                 @Html.DisplayNameFor(model => model.cat)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.city)
+            </th>
+             <th>
+                @Html.DisplayNameFor(model => model.imgpath)
             </th>
             <th></th>
         </tr>
@@ -51,14 +52,18 @@
             <td>
                 @Html.DisplayFor(modelItem => item.quantity)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.imgpath)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.cat.id)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.city.id)
+            </td>
+             <td>
+                <img src="~/@item.imgpath" width="50" height="50">
+
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |

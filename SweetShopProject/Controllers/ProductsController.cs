@@ -5,16 +5,21 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+
+using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 using SweetShopProject.Models;
 namespace SweetShop.Controllers
 {
     public class ProductsController : Controller
     {
         private readonly SweetContext _context;
+        public
+           IHostingEnvironment _env;
 
-        public ProductsController(SweetContext context)
+        public ProductsController(SweetContext context, IHostingEnvironment env)
         {
             _context = context;
+            _env = env; 
         }
 
         // GET: Products
@@ -23,6 +28,8 @@ namespace SweetShop.Controllers
             var sweetContext = _context.product.Include(p => p.cat).Include(p => p.city);
             return View(await sweetContext.ToListAsync());
         }
+
+
 
         // GET: Products/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -57,17 +64,22 @@ namespace SweetShop.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,prodName,price,description,quantity,imgpath,catID,cityID")] Product product)
+        public async Task<IActionResult> Create( Product product)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(product);
+            //if (ModelState.IsValid)
+            //{
+            var nam = Path.Combine(_env.WebRootPath + "/Images", Path.GetFileName(product.formFile.FileName));
+            product.formFile.CopyTo(new FileStream(nam, FileMode.Create));
+            product.imgpath = "Images/" + product.formFile.FileName;
+            //_context.product.Add(product);
+
+            _context.Add(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
-            ViewData["catID"] = new SelectList(_context.category, "id", "categoryName", product.catID);
-            ViewData["cityID"] = new SelectList(_context.cities, "id", "city", product.cityID);
-            return View(product);
+            //}
+            //ViewData["catID"] = new SelectList(_context.category, "id", "categoryName", product.catID);
+            //ViewData["cityID"] = new SelectList(_context.cities, "id", "city", product.cityID);
+            //return View(product);
         }
 
         // GET: Products/Edit/5

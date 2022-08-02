@@ -21,7 +21,7 @@ namespace SweetShopProject.Models
         // public int pincode { get; set; }
 
         [NotMapped]
-        public IFormFile images { get; set; }
+        public IFormFile formFile { get; set; }
         [DisplayName("Images")]
         public string imgpath { get; set; }
 
@@ -38,7 +38,6 @@ namespace SweetShopProject.Models
 
 
     }
-
     public class City
     {
         public int id { get; set; }
@@ -51,7 +50,6 @@ namespace SweetShopProject.Models
         public string categoryName { get; set; }
 
     }
-
     public class Cart
     {
         [DisplayName("Order ID")]
@@ -111,8 +109,11 @@ namespace SweetShopProject.Models
 
         }
         public DbSet<Category> category { get; set; }
+
         public DbSet<Product> product { get; set; }
+
         public DbSet<Inventory> inventory { get; set; }
+
         public DbSet<Cart> cart { get; set; }
 
         public DbSet<City> cities { get; set; }

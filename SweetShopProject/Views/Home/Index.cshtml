@@ -8,39 +8,20 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
+    <h2 class="display-7">We are Here to Serve you.</h2>
     
 </div>
 
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="https://cdn.shopify.com/s/files/1/0447/0521/8721/files/Generic-festive-banner_1920x725_a0c67852-4de2-449e-adf2-df8a7401fd8a_2000x.jpg?v=1617458968" style="height:350px" class="d-block w-100" alt="">
+      <img src="https://cdn.shopify.com/s/files/1/0447/0521/8721/files/Generic-festive-banner_1920x725_a0c67852-4de2-449e-adf2-df8a7401fd8a_2000x.jpg?v=1617458968" style="height:400px" class="d-block w-100" alt="">
     </div>
     <div class="carousel-item">
-      <img src="http://gmbchirawa.weebly.com/uploads/1/1/9/8/119813788/ganesh-misthan-bhandar-banner_orig.jpg" style="height:350px" class="d-block w-100" alt="">
+      <img src="http://gmbchirawa.weebly.com/uploads/1/1/9/8/119813788/ganesh-misthan-bhandar-banner_orig.jpg" style="height:400px" class="d-block w-100" alt="">
     </div>
     <div class="carousel-item">
-      <img src="https://assets.limetray.com/assets/image_manager/uploads/7196/Banner-1-sweets-23.jpg" style="height:350px" class="d-block w-100" alt="">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div><div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="..." class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
+      <img src="https://assets.limetray.com/assets/image_manager/uploads/7196/Banner-1-sweets-23.jpg" style="height:400px" class="d-block w-100" alt="">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -52,6 +33,53 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <!-- CSS only <div class="carousel-item active">
+      <img src="..." class="d-block w-100" alt="...">
+    </div> -->
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+@{
+    ViewData["Title"] = "Index";
+}
+  <table class="table">
+    <thead>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <img src="~/@item.imgpath" width="200" height="200">
+                <br>
+                @Html.DisplayFor(modelItem => item.prodName)
+                <br>
+                @Html.DisplayFor(modelItem => item.price)
+                <br>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+             
+        </tr>
+}
+    </tbody>
+</table>
+
+
 
 @*<div class="row align-content-center">
 @foreach(var item in Model)
@@ -64,6 +92,7 @@
             <p class="card-text">@item.price</p>
              
         </div>
+
     </div>
 }
 </div>*@

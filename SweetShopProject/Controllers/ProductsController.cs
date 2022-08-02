@@ -13,8 +13,7 @@ namespace SweetShop.Controllers
     public class ProductsController : Controller
     {
         private readonly SweetContext _context;
-        public
-           IHostingEnvironment _env;
+        public IHostingEnvironment _env;
 
         public ProductsController(SweetContext context, IHostingEnvironment env)
         {

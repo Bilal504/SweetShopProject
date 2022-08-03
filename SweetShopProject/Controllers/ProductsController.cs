@@ -123,8 +123,8 @@ namespace SweetShop.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 try
                 {
                     _context.Update(product);
@@ -142,10 +142,10 @@ namespace SweetShop.Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
-            }
-            ViewData["catID"] = new SelectList(_context.category, "id", "categoryName", product.catID);
-            ViewData["cityID"] = new SelectList(_context.cities, "id", "city", product.cityID);
-            return View(product);
+            //}
+            //ViewData["catID"] = new SelectList(_context.category, "id", "categoryName", product.catID);
+            //ViewData["cityID"] = new SelectList(_context.cities, "id", "city", product.cityID);
+            //return View(product);
         }
 
         // GET: Products/Delete/5

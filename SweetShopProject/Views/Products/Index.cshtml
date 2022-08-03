@@ -1,7 +1,7 @@
 @model IEnumerable<SweetShopProject.Models.Product>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Product List";
 }
 
 <style>
@@ -25,10 +25,10 @@
 
 </style>
 
-<h1>Index</h1>
+<h1>Product List</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Add Products</a>
 </p>
 <table class="table">
     <thead>
@@ -55,14 +55,17 @@
             <th>
                 @Html.DisplayNameFor(model => model.city)
             </th>
-             
+
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td><img src="~/@item.imgpath" width="100" /></td>
+              <td>
+                <img src="~/@item.imgpath" width="100" height="100">
+
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.prodName)
             </td>

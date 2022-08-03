@@ -11,10 +11,11 @@ namespace SweetShopProject.Models
         [DisplayName("Product Name")]
         public string prodName { get; set; }
 
+        [DisplayName("Price")]
         public float price { get; set; }
-
+        [DisplayName("Description")]
         public string description { get; set; }
-
+        [DisplayName("Quantity")]
         public int quantity { get; set; }
 
         //NEED TO ASK:
@@ -29,11 +30,13 @@ namespace SweetShopProject.Models
         [ForeignKey("cat")]
         [DisplayName("Category")]
         public int catID { get; set; }
+        [DisplayName("Cateogory")]
         public Category cat { get; set; }
 
 
         [ForeignKey("city")]
         public int cityID { get; set; }
+        [DisplayName("City")]
         public City city { get; set; }
 
 

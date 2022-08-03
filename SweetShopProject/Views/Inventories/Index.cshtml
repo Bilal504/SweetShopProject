@@ -8,7 +8,7 @@
 .btn {
   border: none;
   color: white;
-  padding: 10px 20px;
+  padding: 10px 10px;
   font-size: 16px;
   cursor: pointer;
 }
@@ -24,10 +24,11 @@
 .danger:hover {background: #da190b;}
 
 </style>
-<h1>Inventory Items</h1>
+<h1 style="-webkit-text-fill-color:chocolate">Inventory Items</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <button type="button" class="btn btn-outline-primary">
+    <a class="text-light btn btn-primary" asp-action="Create">Create New</a></button>
 </p>
 <table class="table">
     <thead>
@@ -70,13 +71,13 @@
             </td>
             <td>
                  <button type="button" class="btn btn-outline-success">
-                <a asp-action="Edit" class="btn btn-success" asp-route-id="@item.id">Edit</a>
+                <a asp-action="Edit" class="btn btn-success" asp-route-id="@item.id">Edit</a></button>
 
                 <button type="button" class="btn btn-outline-warning">
-                <a asp-action="Details" class="btn btn-warning" asp-route-id="@item.id">Details</a>
+                <a asp-action="Details" class="btn btn-warning" asp-route-id="@item.id">Details</a></button>
 
                 <button type="button" class="btn btn-outline-danger">
-                <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.id">Delete</a>
+                <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.id">Delete</a></button>
             </td>
         </tr>
 }

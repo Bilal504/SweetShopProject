@@ -76,7 +76,7 @@ namespace SweetShop.Controllers
                 prodID = product.id,
                 catID = product.catID,
                 quantityAvail=qty,
-                totalQuantity=qty
+                 totalQuantity=qty
             };
             _context.inventory.Add(inv);
             _context.SaveChanges();

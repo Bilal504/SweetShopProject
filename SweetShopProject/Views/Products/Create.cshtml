@@ -29,8 +29,9 @@
             </div>
             <div class="form-group">
                 <label asp-for="quantity" class="control-label"></label>
-                <input asp-for="quantity" class="form-control" />
-                <span asp-validation-for="quantity" class="text-danger"></span>
+                 <input type="text" name="qty" id="qty" class="form-control" />
+                @*<input asp-for="quantity" class="form-control" />
+                <span asp-validation-for="quantity" class="text-danger"></span>*@
             </div>
             @*<div class="form-group">
                 <label asp-for="imgpath" class="control-label"></label>
@@ -47,7 +48,7 @@
                 <select asp-for="cityID" class ="form-control" asp-items="ViewBag.cityID"><option>Select</option>
 </select>
             </div>
-            <div>
+            <div class="form-group">
                 <label> Add Image </label>
                 <input asp-for="formFile" type="file" />
             </div>

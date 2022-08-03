@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SweetShopProject.Models.Product>
+@model IEnumerable<SweetShopProject.Models.Product>
 
 @{
     ViewData["Title"] = "Index";
@@ -55,7 +55,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.city)
             </th>
-          
+
             <th></th>
         </tr>
     </thead>
@@ -78,9 +78,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.quantity)
             </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.imgpath)
-            </td>*@
+         
             <td>
                 @Html.DisplayFor(modelItem => item.cat.id)
             </td>
@@ -88,7 +86,6 @@
                 @Html.DisplayFor(modelItem => item.city.id)
             </td>
            
-
             <td>
                <button type="button" class="btn btn-outline-success">
                 <a asp-action="Edit" class="btn btn-success" asp-route-id="@item.id">Edit</a>

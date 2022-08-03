@@ -47,9 +47,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.description)
             </th>
-            <th>
+           @* <th>
                 @Html.DisplayNameFor(model => model.quantity)
-            </th>
+            </th>*@
            
             <th>
                 @Html.DisplayNameFor(model => model.cat)
@@ -77,12 +77,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.description)
             </td>
-            <td>
+           @* <td>
                 @Html.DisplayFor(modelItem => item.quantity)
-            </td>
+            </td>*@
          
             <td>
-                @Html.DisplayFor(modelItem => item.cat.id)
+                @Html.DisplayFor(modelItem => item.cat.categoryName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.city.city)

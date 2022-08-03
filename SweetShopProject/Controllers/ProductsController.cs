@@ -71,6 +71,7 @@ namespace SweetShop.Controllers
             product.imgpath = "Images/" + product.formFile.FileName;
             _context.Add(product);
             await _context.SaveChangesAsync();
+            
             Inventory inv = new Inventory()
             {
                 prodID = product.id,

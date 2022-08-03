@@ -63,17 +63,29 @@ namespace SweetShop.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create( Product product)
+        public async Task<IActionResult> Create(Product product)
         {
-            //if (ModelState.IsValid)
-            //{
+            int qty = int.Parse(Request.Form["qty"].ToString());
             var nam = Path.Combine(_env.WebRootPath + "/Images", Path.GetFileName(product.formFile.FileName));
             product.formFile.CopyTo(new FileStream(nam, FileMode.Create));
             product.imgpath = "Images/" + product.formFile.FileName;
+            _context.Add(product);
+            await _context.SaveChangesAsync();
+            Inventory inv = new Inventory()
+            {
+                prodID = product.id,
+                catID = product.catID,
+                quantityAvail=qty
+            };
+            _context.inventory.Add(inv);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(Index));
+            //if (ModelState.IsValid)
+            //{
+            
             //_context.product.Add(product);
 
-            _context.Add(product);
-                await _context.SaveChangesAsync();
+            
                 return RedirectToAction(nameof(Index));
             //}
             //ViewData["catID"] = new SelectList(_context.category, "id", "categoryName", product.catID);

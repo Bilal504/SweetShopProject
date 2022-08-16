@@ -8,8 +8,11 @@ using Microsoft.EntityFrameworkCore;
 
 using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 using SweetShopProject.Models;
+using Microsoft.AspNetCore.Authorization;
+
 namespace SweetShop.Controllers
 {
+    
     public class ProductsController : Controller
     {
         private readonly SweetContext _context;
